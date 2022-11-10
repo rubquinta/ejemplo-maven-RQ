@@ -11,25 +11,25 @@ pipeline{
 
         stage('Compile Code') {
             steps {
-                ./mvnw.cmd clean compile -e
+                sh "./mvnw clean compile -e"
             }
         }
 
         stage('Test Code') {
             steps {
-                ./mvnw.cmd clean test -e
+                sh "./mvnw clean test -e"
             }
         }
 
         stage('Jar Code') {
             steps {
-                ./mvnw.cmd clean package -e
+                sh "./mvnw clean package -e"
             }
         }
 
         stage('Run Jar') {
             steps {
-                ./mvnw.cmd spring-boot:run
+                sh "./mvnw spring-boot:run"
             }
         }
     }
