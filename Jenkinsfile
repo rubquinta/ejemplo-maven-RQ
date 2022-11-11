@@ -11,25 +11,25 @@ pipeline{
 
         stage('Compile Code') {
             steps {
-                sh "./mvnw clean compile -e"
+                sh "docker run -it --rm -v $(pwd):/code --workdir /code maven mvn clean compile -e"
             }
         }
 
         stage('Test Code') {
             steps {
-                sh "./mvnw clean test -e"
+                sh "docker run -it --rm -v $(pwd):/code --workdir /code maven mvn clean test -e"
             }
         }
 
         stage('Jar Code') {
             steps {
-                sh "./mvnw clean package -e"
+                sh "docker run -it --rm -v $(pwd):/code --workdir /code maven mvn clean package -e"
             }
         }
-        
+
         stage('Run Code') {
             steps {
-                sh "./mvnw spring-boot:run"
+                sh "docker run -it --rm -p 8081:8081  -v $(pwd):/code --workdir /code maven mvn spring-boot:run"
             }
         }
     }
