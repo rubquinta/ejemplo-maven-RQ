@@ -27,7 +27,7 @@ pipeline{
             }
         }
 
-        stage('Run') {
+        stage('Run Code') {
             steps {
                 sh "./mvnw spring-boot:run"
             }
