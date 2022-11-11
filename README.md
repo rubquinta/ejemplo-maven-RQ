@@ -1,5 +1,5 @@
 # Getting Started
-Ruben Readme
+Readme
 ## Windows
 
 ### Compile Code
