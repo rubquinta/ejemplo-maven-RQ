@@ -1,8 +1,8 @@
 pipeline{
     agent any
 
-    stages {
-        
+    stages {  
+
         stage('Clean') {
             steps {
                 cleanWs()
@@ -26,7 +26,7 @@ pipeline{
                 sh "./mvnw clean package -e"
             }
         }
-
+        
         stage('Run Code') {
             steps {
                 sh "./mvnw spring-boot:run"
