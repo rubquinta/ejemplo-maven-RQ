@@ -6,7 +6,6 @@
         <sourceOutputDir name="build/generated-sources/annotations" />
         <sourceTestOutputDir name="build/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="DevOpsUsach2020" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
