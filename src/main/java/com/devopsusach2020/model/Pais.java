@@ -7,7 +7,7 @@ public class Pais implements Serializable{
 	/**
 	 * 
 	 */
-	public final static long serialVersionUID = -2988002029080131424L;
+	public static final long serialVersionUID = -2988002029080131424L;
 	
 	private int deaths;
 	private int confirmed;
