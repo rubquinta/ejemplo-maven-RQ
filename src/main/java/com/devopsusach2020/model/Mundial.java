@@ -7,7 +7,7 @@ public class Mundial implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 3908000903498620526L;
+	public final static long serialVersionUID = 3908000903498620526L;
 	
 	private int totalconfirmed;
 	private int totaldeaths;
