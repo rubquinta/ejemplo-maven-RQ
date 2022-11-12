@@ -4,28 +4,28 @@ pipeline {
         stage('Compile Code') 
         {
             steps {
-                echo 'TODO: build'
+                echo 'TODO: Compile'
                 sh "./mvnw clean compile -e"
             }
         }
         stage('Test Code') 
         {
             steps {
-                echo 'TODO: test'
+                echo 'TODO: Test'
                 sh "./mvnw clean test -e"
             }
         }
         stage('Build') 
         {
             steps {
-                echo 'TODO: package'
+                echo 'TODO: Package'
                 sh "./mvnw clean package -e"
             }
         } 
         stage('SonarQube analysis') 
         {
             steps {
-                withSonarQubeEnv(credentialsId: 'Sonita', installationName: 'SonaqubeInstall') { // You can override the credential to be used
+                withSonarQubeEnv(credentialsId: 'SoniToken', installationName: 'Sonita') { // You can override the credential to be used
             sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:4.7.0.2747:sonar'
             }
             }
