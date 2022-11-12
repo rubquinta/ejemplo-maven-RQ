@@ -26,7 +26,7 @@ pipeline {
         {
             steps {
                 withSonarQubeEnv(credentialsId: 'SoniToken', installationName: 'Sonita') { // You can override the credential to be used
-            sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:4.7.0.2747:sonar'
+            sh './mvnw org.sonarsource.scanner.maven:sonar-maven-plugin:4.7.0.2747:sonar'
             }
             }
         }   
