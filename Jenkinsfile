@@ -1,14 +1,6 @@
 pipeline {
     agent any
-    stages {
-        stage('SonarQube analysis') 
-        {
-            withSonarQubeEnv(credentialsId: 'squ_1320c719e926aba9e8599b1e751d717e1acdafee', 
-            installationName: 'My SonarQube Server') 
-            { // You can override the credential to be used
-            sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
-            }
-        }
+    stages {        
         stage('Compile Code') 
         {
             steps {
@@ -23,11 +15,21 @@ pipeline {
                 sh "./mvnw clean test -e"
             }
         }
-        stage('Jar Code') 
+        stage('Build Jar Code') 
         {
             steps {
                 echo 'TODO: package'
                 sh "./mvnw clean package -e"
+            }
+        }
+        stage('SonarQube analysis') 
+        {
+            step{
+                withSonarQubeEnv(credentialsId: 'squ_1320c719e926aba9e8599b1e751d717e1acdafee', 
+            installationName: 'My SonarQube Server') 
+            { // You can override the credential to be used
+            sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+            }
             }
         }
         stage('Run Code') 
