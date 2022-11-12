@@ -1,14 +1,6 @@
 pipeline {
     agent any
-    stages {  
-        stage('SonarQube analysis') 
-        {
-            steps {
-                withSonarQubeEnv(credentialsId: 'Sonita', installationName: 'SonaqubeInstall') { // You can override the credential to be used
-            sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:4.7.0.2747:sonar'
-            }
-            }
-        }      
+    stages {    
         stage('Compile Code') 
         {
             steps {
@@ -23,13 +15,21 @@ pipeline {
                 sh "./mvnw clean test -e"
             }
         }
-        stage('Build Jar Code') 
+        stage('Build') 
         {
             steps {
                 echo 'TODO: package'
                 sh "./mvnw clean package -e"
             }
-        }        
+        } 
+        stage('SonarQube analysis') 
+        {
+            steps {
+                withSonarQubeEnv(credentialsId: 'Sonita', installationName: 'SonaqubeInstall') { // You can override the credential to be used
+            sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:4.7.0.2747:sonar'
+            }
+            }
+        }   
         stage('Run Code') 
         {
             steps {
