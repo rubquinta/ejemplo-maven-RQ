@@ -38,7 +38,7 @@ pipeline {
                 sleep 25
             }
         }
-        stage('Testing')
+        stage('Testing Deployed')
         {
              steps { 
                  echo 'TODO: Testing 1 llamada simple'
