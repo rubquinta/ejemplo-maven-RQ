@@ -1,5 +1,4 @@
 # Getting Started
-Readme
 ## Windows
 
 ### Compile Code
