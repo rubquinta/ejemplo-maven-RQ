@@ -38,5 +38,12 @@ pipeline {
                 sleep 25
             }
         }
+        stage('Nexus Repos')
+       {
+           steps {
+                echo 'Todo: Maven Clean Install'
+                sh './mvnw clean install'
+	   }
+       }
     }
 }
